@@ -1,8 +1,8 @@
 import "./styles/index.css";
-import Greeting from "./components/Greeting";
+import LandingPage from "./components/LandingPage";
 
 export function App() {
-  return <Greeting />;
+  return <LandingPage />;
 }
 
 export default App;
