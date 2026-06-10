@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --hot src/index.html",
+    "dev": "vite",
     "start": "NODE_ENV=production bun src/index.html",
     "build": "bun run build.ts"
   },
@@ -15,8 +15,11 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "@vitejs/plugin-react": "4",
+    "vite": "5"
   }
 }
