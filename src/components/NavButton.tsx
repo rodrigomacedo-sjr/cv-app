@@ -11,7 +11,7 @@ function resolveSize(size?: 1 | 2 | 3): string {
       sizeStyle = "text-base px-10 py-2 md:text-xl md:px-20 md:py-4";
       break;
     case 2:
-      sizeStyle = "text-xl px-20 py-4 md:text-3xl md:px-40 md:py-8";
+      sizeStyle = "text-xl px-20 py-4 md:text-2xl md:px-20 md:py-4";
       break;
     case 3:
     default:

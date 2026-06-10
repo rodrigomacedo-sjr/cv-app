@@ -1,12 +1,14 @@
 import NavButton from "./NavButton";
 
 interface FormsPageProps {
+  handlePrev: () => void;
+  handleNext: () => void;
   children: React.ReactNode;
 }
 
-export default function FormsPage({ children }: FormsPageProps) {
+export default function FormsPage({ handlePrev, handleNext, children }: FormsPageProps) {
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-red-100">
       <div className="flex-1 flex items-center justify-center pt-5">
         <p className="font-semibold flex items-center justify-center text-black text-xl md:text-2xl">
           CV App
@@ -16,11 +18,11 @@ export default function FormsPage({ children }: FormsPageProps) {
       <div className="flex-2 flex items-center justify-center pb-5 gap-10 md:gap-30">
         <NavButton
           text="prev"
-          handleClick={(e) => console.log("prev" + e.target)}
+          handleClick={handlePrev}
         />
         <NavButton
           text="next"
-          handleClick={(e) => console.log("next" + e.target)}
+          handleClick={handleNext}
         />
       </div>
     </div>
