@@ -8,12 +8,17 @@ export function App() {
 
   return (
     <div className="flex flex-col flex-1 w-full">
-      {page == 0 && <LandingPage handleNext={() => setPage(1)} />}
-      {page == 1 && (
-        <FormsPage handlePrev={() => setPage(0)} handleNext={() => setPage(1)}>
-          {" "}
-        </FormsPage>
-      )}
+      <div key={page} className="animate-page-enter flex flex-col flex-1">
+        {page == 0 && <LandingPage handleNext={() => setPage(1)} />}
+        {page == 1 && (
+          <FormsPage
+            handlePrev={() => setPage(0)}
+            handleNext={() => setPage(1)}
+          >
+            {" "}
+          </FormsPage>
+        )}
+      </div>
     </div>
   );
 }
