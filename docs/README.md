@@ -20,7 +20,7 @@
 
 - [x] init
 - [ ] Create a simple MVP with the most basic info
-  - [ ] 1 simple landing page
+  - [x] 1 simple landing page
   - [ ] 3 interconnected sort of paginated forms
     - [ ] general information
     - [ ] educational experience
