@@ -22,7 +22,6 @@ export function App() {
             <GeneralInfoForm
               initialData={cv.general ?? {}}
               updateGlobal={({ name, email, phone }) => {
-                console.log({ name, email, phone });
                 setCv((prevCv) => {
                   return {
                     ...prevCv,
@@ -42,6 +41,7 @@ export function App() {
           <FormsPage
             handlePrev={() => setPage(1)}
             handleNext={() => setPage(3)}
+            valid={valid}
           >
             {" Educational Experience "}
           </FormsPage>
@@ -51,6 +51,7 @@ export function App() {
           <FormsPage
             handlePrev={() => setPage(2)}
             handleNext={() => setPage(4)}
+            valid={valid}
           >
             {" Professional Experience "}
           </FormsPage>

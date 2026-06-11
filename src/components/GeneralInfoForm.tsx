@@ -1,5 +1,6 @@
 import type { GeneralInfo } from "@/types/cv";
 import { useState, type ChangeEvent } from "react";
+import PrettyTextInput from "./PrettyTextInput";
 
 interface GeneralInfoFormProps {
   initialData: GeneralInfo;
@@ -25,40 +26,54 @@ export default function GeneralInfoForm({
     updateGlobal(newData);
   }
 
+  function handleReset(name: string) {
+    const newData = {
+      ...data,
+      [name]: "",
+    };
+
+    setData(newData);
+
+    updateGlobal(newData);
+  }
+
   return (
-    <div className="px-10 md:px-100 flex-1 flex flex-col">
+    <form className="px-10 lg:px-100 flex-1 flex flex-col">
       <h2 className="pl-2 pt-15 font-bold">general information</h2>
-      <div className="w-full gap-20 flex-1 flex flex-col items-center pt-10">
+      <div className="w-full gap-10 md:gap-20 flex-1 flex flex-col items-center pt-10">
         <div className="w-full">
           <p className="pl-2 font-medium">name</p>
-          <input
+          <PrettyTextInput
             name="name"
             value={data.name}
-            onChange={handleChange}
-            className="mt-1 outline-none h-8 px-3 shadow-sm hover:shadow-md focus:shadow-xl transition duration-300 ease-in-out w-full bg-white rounded-full"
+            pattern="^[a-zA-Z]+$"
+            handleChange={handleChange}
+            handleReset={handleReset}
           />
         </div>
 
         <div className="w-full">
           <p className="pl-2 font-medium">email</p>
-          <input
+          <PrettyTextInput
             name="email"
             value={data.email}
-            onChange={handleChange}
-            className="mt-1 outline-none h-8 px-3 shadow-sm hover:shadow-md focus:shadow-xl transition duration-300 ease-in-out w-full bg-white rounded-full"
+            type="email"
+            handleChange={handleChange}
+            handleReset={handleReset}
           />
         </div>
 
         <div className="w-full">
           <p className="pl-2 font-medium">phone</p>
-          <input
+          <PrettyTextInput
             name="phone"
             value={data.phone}
-            onChange={handleChange}
-            className="mt-1 outline-none h-8 px-3 shadow-sm hover:shadow-md focus:shadow-xl transition duration-300 ease-in-out w-full bg-white rounded-full"
+            pattern="^\+[1-9]\d{1,14}$"
+            handleChange={handleChange}
+            handleReset={handleReset}
           />
         </div>
       </div>
-    </div>
+    </form>
   );
 }
