@@ -21,8 +21,8 @@
 - [x] init
 - [ ] Create a simple MVP with the most basic info
   - [x] 1 simple landing page
-  - [ ] 3 interconnected sort of paginated forms
-    - [ ] general information
+  - [x] 3 interconnected sort of paginated forms
+    - [x] general information
     - [ ] educational experience
     - [ ] practical experience
   - [ ] 1 preview/export page

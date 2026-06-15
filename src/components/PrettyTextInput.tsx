@@ -21,7 +21,7 @@ export default function PrettyTextInput({
 }: PrettyTextInputProps) {
   return (
     <div
-      className={`${extra} flex flex-row gap-0 mt-1 outline-none h-8 px-3 shadow-sm hover:shadow-md focus:shadow-xl transition duration-300 ease-in-out w-full bg-white rounded-full`}
+      className={`${extra} flex flex-row gap-0 mt-1 outline-none h-8 shadow-sm hover:shadow-md focus:shadow-xl transition duration-300 ease-in-out w-full bg-white rounded-full`}
     >
       <input
         name={name}
@@ -29,7 +29,7 @@ export default function PrettyTextInput({
         onChange={handleChange}
         type={type ?? "text"}
         pattern={pattern}
-        className={`${extra} flex-36 outline-none transition duration-300 ease-in-out rounded-l-full`}
+        className={`${extra} px-3 flex-36 outline-none transition duration-300 ease-in-out rounded-l-full`}
       />
       <button
         onClick={() => handleReset(name)}
