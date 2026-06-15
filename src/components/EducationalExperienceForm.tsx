@@ -1,26 +1,28 @@
-import type { GeneralInfo } from "@/types/cv";
+import type { EducationalExperience, EducationalExperiences } from "@/types/cv";
 import { useState, type ChangeEvent } from "react";
 import PrettyTextInput from "./PrettyTextInput";
-import BigPlusButton from "./BigPlusButton";
 
-interface GeneralInfoFormProps {
-  initialData: GeneralInfo;
-  updateGlobal: ({ name, email, phone }: GeneralInfo) => void;
+interface EducationalExperienceFormProps {
+  initialData: EducationalExperiences;
+  updateGlobal: (experiences: EducationalExperience) => void;
 }
 
-export default function GeneralInfoForm({
+export default function EducationalExperienceForm({
   initialData,
   updateGlobal,
-}: GeneralInfoFormProps) {
-  const [data, setData] = useState<GeneralInfo>(initialData);
+}: EducationalExperienceFormProps) {
+  const [data, setData] = useState<EducationalExperiences>(initialData);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
+    // id??
 
-    const newData = {
+    const newData = [
       ...data,
-      [name]: value,
-    };
+      [id]: {
+        [name]: value
+      },
+    ];
 
     setData(newData);
 
@@ -40,47 +42,38 @@ export default function GeneralInfoForm({
 
   return (
     <form className="px-10 lg:px-100 flex-1 flex flex-col">
-      <h2 className="pl-2 pt-15 font-bold">general information</h2>
+      <h2 className="pl-2 pt-15 font-bold">educational experience</h2>
       <div className="w-full gap-10 md:gap-20 flex-1 flex flex-col items-center pt-10">
         <div className="w-full">
-          <p className="pl-2 font-medium">name</p>
+          <p className="pl-2 font-medium">school name</p>
           <PrettyTextInput
-            name="name"
-            value={data.name}
-            pattern="^[a-zA-Z]+$"
+            name="school_name"
+            value={data.school_name}
             handleChange={handleChange}
             handleReset={handleReset}
           />
         </div>
 
         <div className="w-full">
-          <p className="pl-2 font-medium">email</p>
+          <p className="pl-2 font-medium">title of study</p>
           <PrettyTextInput
-            name="email"
-            value={data.email}
-            type="email"
+            name="title_of_study"
+            value={data.title_of_study}
             handleChange={handleChange}
             handleReset={handleReset}
           />
         </div>
 
         <div className="w-full">
-          <p className="pl-2 font-medium">phone</p>
-          <PrettyTextInput
-            name="phone"
-            value={data.phone}
-            pattern="^\+[1-9]\d{1,14}$"
+          <p className="pl-2 font-medium">date of study</p>
+          <PrettyDateInput
+            name="date_of_study"
+            value={data.date_of_study}
             handleChange={handleChange}
             handleReset={handleReset}
           />
         </div>
       </div>
-      <BigPlusButton
-        handleClick={(e) => {
-          e.preventDefault();
-          console.log("click");
-        }}
-      />
     </form>
   );
 }
