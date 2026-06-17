@@ -32,6 +32,7 @@ export default function PrettyTextInput({
         className={`${extra} px-3 flex-36 outline-none transition duration-300 ease-in-out rounded-l-full`}
       />
       <button
+        type="button"
         onClick={() => handleReset(name)}
         className="cursor-pointer focus:bg-slate-100 outline-none flex justify-center items-center flex-1 opacity-[0.5] hover:opacity-[1]"
       >

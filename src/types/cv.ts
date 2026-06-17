@@ -4,21 +4,15 @@ export interface GeneralInfo {
   email?: string;
 }
 
-export interface timePeriod {
-  start: Date;
-  end?: Date;
-}
-
 export interface EducationalExperience {
+  id: string;
   school_name?: string;
   title_of_study?: string;
-  date_of_study?: timePeriod;
-}
-
-export interface EducationalExperiences {
-  experience: EducationalExperience[];
+  date_of_start?: string;
+  date_of_end?: string;
 }
 
 export interface Cv {
   general?: GeneralInfo;
+  educational?: EducationalExperience[];
 }

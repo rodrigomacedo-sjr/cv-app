@@ -4,6 +4,7 @@ import FormsPage from "./components/FormsPage";
 import { useState } from "react";
 import GeneralInfoForm from "./components/GeneralInfoForm";
 import type { Cv } from "@/types/cv";
+import EducationalExperienceForm from "./components/EducationalExperienceForm";
 
 export function App() {
   const [page, setPage] = useState<number>(0);
@@ -41,9 +42,18 @@ export function App() {
           <FormsPage
             handlePrev={() => setPage(1)}
             handleNext={() => setPage(3)}
-            valid={valid}
           >
-            {" Educational Experience "}
+            <EducationalExperienceForm
+              initialData={cv.educational ?? [{ id: crypto.randomUUID() }]}
+              updateGlobal={(educationalExperience) =>
+                setCv((prevCv) => {
+                  return {
+                    ...prevCv,
+                    educational: educationalExperience,
+                  };
+                })
+              }
+            />
           </FormsPage>
         )}
 
@@ -51,7 +61,6 @@ export function App() {
           <FormsPage
             handlePrev={() => setPage(2)}
             handleNext={() => setPage(4)}
-            valid={valid}
           >
             {" Professional Experience "}
           </FormsPage>

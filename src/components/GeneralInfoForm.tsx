@@ -75,12 +75,6 @@ export default function GeneralInfoForm({
           />
         </div>
       </div>
-      <BigPlusButton
-        handleClick={(e) => {
-          e.preventDefault();
-          console.log("click");
-        }}
-      />
     </form>
   );
 }
